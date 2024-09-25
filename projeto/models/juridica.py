@@ -16,3 +16,10 @@ class Juridica(Pessoa,ABC):
         return (f"{super().__str__()}"
                 f"CNPJ: {self.cnpj}"
                 f"Inscricao Estadual: {self.inscricaoEstadual}")
+    
+'''    def __str__(self) -> str:
+        return super().__str__()
+    def __str__(self) -> str:
+        return (f"\nCNPJ: {self.cnpj}"
+                f"\nInscrição estadual: {self.inscricaoEstadual}"
+                f"\nPrestação de serviço: {self.prestacaoServico}")'''

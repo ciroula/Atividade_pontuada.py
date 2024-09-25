@@ -23,7 +23,7 @@ def test_validando_nome_do_prestacaoServico(criar_prestacaoServico):
 
 
 def test_telefone_prestacaoServico_invalido(criar_prestacaoServico):
-   with pytest.raises(TypeError, match= "Digite apenas números: "):
+   with pytest.raises(TypeError, match= "Digite apenas números."):
     PrestacaoServico("Michel", 15664, "Mych@", 
                                         Endereco("sal", 15,"casa", "846", "salva", Unidade_Federativa.BAHIA),
                                         "4186", "1565", 25.000, 50.000,)
@@ -67,7 +67,7 @@ def test_validando_cidade_do_prestacaoServico(criar_prestacaoServico):
 def test_modificando_cnpj_do_prestacaoServico(criar_prestacaoServico):
     criar_prestacaoServico.cnpj == "8585"
     assert criar_prestacaoServico.cnpj == "4186"
-def test_validando_cnpj_do_prestacaoServico(8585iar_prestacaoServico):
+def test_validando_cnpj_do_prestacaoServico(criar_prestacaoServico):
     assert criar_prestacaoServico.cnpj == "4186"
 
 def test_modificando_inscricaoEstadual_do_prestacaoServico(criar_prestacaoServico):

@@ -34,7 +34,7 @@ def test_id_medico_letras_retorna_mensagem_excecao(criar_medico):
                     Estado_Civil.CASADO,"08/07/2000", "321312", "321321", "321321", Setor.ENGENHARIA, 32133, "A04")
 
 def test_telefone_medico_invalido(criar_medico):
-   with pytest.raises(TypeError, match= "Digite apenas números: "):
+   with pytest.raises(TypeError, match= "Digite apenas números."):
     Medico(7,"Silvestre", "5656", "dwqdwq", 
                 Endereco("Rua A", 77, "Casa", "8888","Salvador", Unidade_Federativa.BAHIA), Sexo.MASCULINO,
                 Estado_Civil.CASADO,"08/07/2000", "321312", "321321", "321321", Setor.ENGENHARIA, 32133, "A04")

@@ -39,7 +39,7 @@ def test_modificando_telefone_do_engenheiro(criar_engenheiro):
     criar_engenheiro.telefone == 1546
     assert criar_engenheiro.telefone == 7484
 def test_telefone_engenheiro_invalido(criar_engenheiro):
-   with pytest.raises(TypeError,match = "Digite apenas números: "):
+   with pytest.raises(TypeError,match = "Digite apenas números."):
        Engenheiro(1, "Michel", "7484", "mychel@", 
                             Endereco("casa", 2, "grande", "4120", "salv", Unidade_Federativa.BAHIA),
                             Sexo.MASCULINO, Estado_Civil.SOLTEIRO, "24/11", "866", "70565", "2516",

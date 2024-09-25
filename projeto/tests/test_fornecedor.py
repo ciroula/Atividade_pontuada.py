@@ -34,7 +34,7 @@ def test_id_fornecedor_letras_retorna_mensagem_excecao(criar_fornecedor):
                             "485648", "456", "carro")
 
 def test_telefone_fornecedor_invalido(criar_fornecedor):
-   with pytest.raises(TypeError, match= "Digite apenas números: "):
+   with pytest.raises(TypeError, match= "Digite apenas números."):
     Fornecedor(17, "Michel", "7878", "mychellv@", 
                             Endereco("car", 5, "casa", "4568", "salv", Unidade_Federativa.BAHIA), 
                             "485648", "456", "carro")

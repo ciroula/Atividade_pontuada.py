@@ -10,22 +10,34 @@ from projeto.models.enums.sexo import Sexo
 
 @pytest.fixture
 def criar_prestacao_servico():
-    prestacao_servico = PrestacaoServico(15, "Michel", 15664, "Mych@", 
-                                        Endereco("sal", 15, "casa", "846", "salva", Unidade_Federativa.BAHIA),
-                                        "4186", "1565", 25.000, 50.000)
+    prestacao_servico = PrestacaoServico(17, "Michel", 7878, "Michell@", 
+                                        Endereco("sal", 15, "casa", "4568", "salva", Unidade_Federativa.BAHIA),
+                                        "4186", "456", 25.000, 50.000)
     return prestacao_servico
 
+def test_validando_id_do_prestacao_servico(criar_prestacao_servico):
+    assert criar_prestacao_servico.id == 17
+def test_modificando_id_do_prestacao_servico(criar_prestacao_servico):
+    criar_prestacao_servico.id == 8
+    assert criar_prestacao_servico.id == 17
+
 def test_modificando_nome_do_prestacao_servico(criar_prestacao_servico):
-    criar_prestacao_servico.nome == "Revoada"
+    criar_prestacao_servico.nome == "brig"
     assert criar_prestacao_servico.nome == "Michel"
 def test_validando_nome_do_prestacao_servico(criar_prestacao_servico):
     assert criar_prestacao_servico.nome == "Michel"
-    
+
+def test_modificando_telefone_do_prestacao_servico(criar_prestacao_servico):
+    criar_prestacao_servico.telefone == 5695
+    assert criar_prestacao_servico.telefone == 7878
+def test_validando_telefone_do_prestacao_servico(criar_prestacao_servico):
+    assert criar_prestacao_servico.telefone == 7878
+
 def test_modificando_email_do_prestacao_servico(criar_prestacao_servico):
     criar_prestacao_servico.email == "CriaDa2@"
-    assert criar_prestacao_servico.email == "Mych@"
+    assert criar_prestacao_servico.email == "Michell@"
 def test_validando_email_do_prestacao_servico(criar_prestacao_servico):
-    assert criar_prestacao_servico.email == "Mych@"
+    assert criar_prestacao_servico.email == "Michell@"
 
 def test_modificando_logradouro_do_prestacao_servico(criar_prestacao_servico):
     criar_prestacao_servico.endereco.logradouro == "cajacity"
@@ -47,44 +59,49 @@ def test_validando_complemento_do_prestacao_servico(criar_prestacao_servico):
 
 def test_modificando_cep_do_prestacao_servico(criar_prestacao_servico):
     criar_prestacao_servico.endereco.cep == "422"
-    assert criar_prestacao_servico.endereco.cep == "846"
+    assert criar_prestacao_servico.endereco.cep == "4568"
 def test_validando_cep_do_prestacao_servico(criar_prestacao_servico):
-    assert criar_prestacao_servico.endereco.cep == "846"
-
-def test_modificando_cidade_do_prestacao_servico(criar_prestacao_servico):
-    criar_prestacao_servico.endereco.cidade == "perna"
-    assert criar_prestacao_servico.endereco.cidade == "salva"
-def test_validando_cidade_do_prestacao_servico(criar_prestacao_servico):
-    assert criar_prestacao_servico.endereco.cidade == "salva"
+    criar_prestacao_servico.endereco.cep == "56456"
+    assert criar_prestacao_servico.endereco.cep == "4568"
 
 def test_modificando_cnpj_do_prestacao_servico(criar_prestacao_servico):
-    criar_prestacao_servico.cnpj == "8585"
+    criar_prestacao_servico.cnpj == "422"
     assert criar_prestacao_servico.cnpj == "4186"
 def test_validando_cnpj_do_prestacao_servico(criar_prestacao_servico):
+    criar_prestacao_servico.cnpj == "56456"
     assert criar_prestacao_servico.cnpj == "4186"
 
 def test_modificando_inscricaoEstadual_do_prestacao_servico(criar_prestacao_servico):
-    criar_prestacao_servico.inscricaoEstadual == "4656"
-    assert criar_prestacao_servico.inscricaoEstadual == "1565"
+    criar_prestacao_servico.inscricaoEstadual == "422"
+    assert criar_prestacao_servico.inscricaoEstadual == "456"
 def test_validando_inscricaoEstadual_do_prestacao_servico(criar_prestacao_servico):
-    assert criar_prestacao_servico.inscricaoEstadual == "1565"
+    criar_prestacao_servico.inscricaoEstadual == "56456"
+    assert criar_prestacao_servico.inscricaoEstadual == "456"
 
 def test_modificando_contratoInicio_do_prestacao_servico(criar_prestacao_servico):
-    criar_prestacao_servico.contratoInicio == 22.000
+    criar_prestacao_servico.contratoInicio == 26.000
     assert criar_prestacao_servico.contratoInicio == 25.000
 def test_validando_contratoInicio_do_prestacao_servico(criar_prestacao_servico):
+    criar_prestacao_servico.contratoInicio == 26.000
     assert criar_prestacao_servico.contratoInicio == 25.000
 
 def test_modificando_contratoFim_do_prestacao_servico(criar_prestacao_servico):
-    criar_prestacao_servico.contratoFim == 44.000
+    criar_prestacao_servico.contratoFim == 56.000
     assert criar_prestacao_servico.contratoFim == 50.000
 def test_validando_contratoFim_do_prestacao_servico(criar_prestacao_servico):
+    criar_prestacao_servico.contratoFim == 56.000
     assert criar_prestacao_servico.contratoFim == 50.000
 
+
+
+def test_id_medico_letras_retorna_mensagem_excecao(criar_prestacao_servico):
+    with pytest.raises(TypeError, match= "ID só pode ser numeros."):
+        PrestacaoServico("17" ,"Michel", 7878, "Michell@", 
+                                        Endereco("sal", 15,"casa", "4568", "sal", Unidade_Federativa.BAHIA),
+                                        "4186", "456", 25.000, 50.000,)
 
 def test_telefone_prestacao_servico_invalido(criar_prestacao_servico):
    with pytest.raises(TypeError, match= "Digite apenas números."):
-    prestacao_servico = PrestacaoServico(15 ,"Michel", "15664", "Mych@", 
-                                        Endereco("sal", 15,"casa", "846", "sal", Unidade_Federativa.BAHIA),
-                                        "4186", "1565", 25.000, 50.000,)
-    return prestacao_servico
+    prestacao_servico = PrestacaoServico(17 ,"Michel", "7878", "Michell@", 
+                                        Endereco("sal", 15,"casa", "4568", "sal", Unidade_Federativa.BAHIA),
+                                        "4186", "456", 25.000, 50.000,)

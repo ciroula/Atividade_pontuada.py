@@ -27,6 +27,12 @@ def test_modificando_nome_do_cliente(criar_cliente):
 def test_validando_nome_do_cliente(criar_cliente):
     assert criar_cliente.nome == "Michel"
 
+def test_modificando_telefone_do_cliente(criar_cliente):
+    criar_cliente.telefone == 4849
+    assert criar_cliente.telefone == 4548
+def test_validando_telefone_do_cliente(criar_cliente):
+    assert criar_cliente.telefone == 4548
+
 def test_modificando_email_do_cliente(criar_cliente):
     criar_cliente.email == "CriaDa2@"
     assert criar_cliente.email == "Mychel@"

@@ -78,6 +78,10 @@ def test_validando_produto_do_fornecedor(criar_fornecedor):
     criar_fornecedor.produto == "moto"
     assert criar_fornecedor.produto == "carro"
 
+def test_validar_unidade_federativa_fornecedor(criar_fornecedor):
+    assert criar_fornecedor.endereco.unidadefederativa == Unidade_Federativa.BAHIA
+
+
 def test_id_fornecedor_letras_retorna_mensagem_excecao(criar_fornecedor):
     with pytest.raises(TypeError, match= "ID só pode ser numeros."):
         Fornecedor("17", "Michel", 7878, "mychellv@", 

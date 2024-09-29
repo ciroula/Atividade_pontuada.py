@@ -99,6 +99,14 @@ def test_modificando_oab_do_advogado(criar_advogado):
 def test_validando_oab_do_advogado(criar_advogado):
     assert criar_advogado.oab == "A04"
 
+def test_validar_genero_advogado(criar_advogado):
+    assert criar_advogado.sexo == Sexo.MASCULINO
+
+def test_validar_unidade_federativa_advogado(criar_advogado):
+    assert criar_advogado.endereco.unidadefederativa == Unidade_Federativa.RIO_DE_JANEIRO
+
+def test_validar_setor_advogado(criar_advogado):
+    assert criar_advogado.setor == Setor.OPERACOES
 
 
 def test_id_advogado_letras_retorna_mensagem_excecao(criar_advogado):

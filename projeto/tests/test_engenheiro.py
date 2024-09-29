@@ -100,6 +100,19 @@ def test_modificando_crea_do_engenheiro(criar_engenheiro):
 def test_validando_crea_do_engenheiro(criar_engenheiro):
     assert criar_engenheiro.crea == "5698"
 
+def test_validar_genero_engenheiro(criar_engenheiro):
+    assert criar_engenheiro.sexo == Sexo.MASCULINO
+
+def test_validar_unidade_federativa_engenheiro(criar_engenheiro):
+    assert criar_engenheiro.endereco.unidadefederativa == Unidade_Federativa.BAHIA
+
+def test_validar_estado_civil_engenheiro(criar_engenheiro):
+    assert criar_engenheiro.estadoCivil == Estado_Civil.SOLTEIRO
+
+def test_validar_setor_engenheiro(criar_engenheiro):
+    assert criar_engenheiro.setor == Setor.JURIDICO
+
+
 def test_id_engenheiro_letras_retorna_mensagem_excecao(criar_engenheiro):
     with pytest.raises(TypeError, match= "ID só pode ser numeros."):
         Engenheiro("1", "Michel", 7484, "mychel@", 

@@ -1,0 +1,27 @@
+Advogado
+Sexo: Sexo
+Setor: Setor
+UnidadeFederativa
+
+Cliente
+Sexo: Sexo
+EstadoCivil: EstadoCivil
+Unidadefederativa: Unidadefederativa
+
+Engenheiro
+Sexo: Sexo
+EstadoCivil:
+UnidadeFederativa:
+Setor:
+
+Fornecedor
+Unidade_Federativa:
+
+Medico
+Unidade_Federativa:
+Sexo:
+Estado_Civil:
+Setor:
+
+PrestacaoServico
+Unidade_Federativa:

@@ -100,6 +100,19 @@ def test_modificando_crm_do_medico(criar_medico):
 def test_validando_crm_do_medico(criar_medico):
     assert criar_medico.crm == "A04"
 
+def test_validar_genero_medico(criar_medico):
+    assert criar_medico.sexo == Sexo.MASCULINO
+
+def test_validar_unidade_federativa_medico(criar_medico):
+    assert criar_medico.endereco.unidadefederativa == Unidade_Federativa.BAHIA
+
+def test_validar_estado_civil_medico(criar_medico):
+    assert criar_medico.estadoCivil == Estado_Civil.CASADO
+
+def test_validar_setor_medico(criar_medico):
+    assert criar_medico.setor == Setor.ENGENHARIA
+
+
 def test_id_medico_letras_retorna_mensagem_excecao(criar_medico):
     with pytest.raises(TypeError, match= "ID só pode ser numeros."):
         Medico("7","Michel", 5656, "Mychel@", 

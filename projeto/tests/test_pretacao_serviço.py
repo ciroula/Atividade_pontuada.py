@@ -92,6 +92,8 @@ def test_validando_contratoFim_do_prestacao_servico(criar_prestacao_servico):
     criar_prestacao_servico.contratoFim == 56.000
     assert criar_prestacao_servico.contratoFim == 50.000
 
+def test_validar_unidade_federativa_prestacao_servico(criar_prestacao_servico):
+    assert criar_prestacao_servico.endereco.unidadefederativa == Unidade_Federativa.BAHIA
 
 
 def test_id_medico_letras_retorna_mensagem_excecao(criar_prestacao_servico):

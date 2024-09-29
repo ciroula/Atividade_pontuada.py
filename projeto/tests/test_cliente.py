@@ -76,6 +76,16 @@ def test_modificando_protocoloAtendimento_do_cliente(criar_cliente):
 def test_validando_protocoloAtendimento_do_cliente(criar_cliente):
     assert criar_cliente.protocoloAtendimento == 65
 
+def test_validar_genero_advogado(criar_cliente):
+    assert criar_cliente.sexo == Sexo.MASCULINO
+
+def test_validar_unidade_federativa_cliente(criar_cliente):
+    assert criar_cliente.endereco.unidadefederativa == Unidade_Federativa.BAHIA
+
+def test_validar_estado_civil_cliente(criar_cliente):
+    assert criar_cliente.estadoCivil == Estado_Civil.DIVORCIADO
+
+
 def test_id_cliente_letras_retorna_mensagem_excecao(criar_cliente):
     with pytest.raises(TypeError, match= "ID só pode ser numeros."):
         Cliente("15", "Michel", 4548, "Mychel@", 
